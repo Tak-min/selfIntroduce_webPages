@@ -1,0 +1,24 @@
+/* コンテナ */
+#container{
+    display: grid;
+    grid-template-rows: 200px 200px;
+    grid-template-columns: 300px 50px 1fr;
+    grid-template-areas: "icon space name" "icon space context";
+    padding: 50px;
+}
+
+/* アイテム */
+#icon{
+    grid-area: icon;
+    position: absolute;
+}
+#name {
+    grid-area: name;
+}
+#context{
+    grid-area: context;
+}
+#space{
+    grid-area: space;
+    background: #fff;
+}
