@@ -8,6 +8,18 @@
 }
 
 /* アイテム */
+.header{
+    background-color: #4F6F52; /* ヘッダーの背景色など */
+    height: 150px;
+    font-size: xx-large;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.FullName{
+    font-size: 24px; /* 名前のフォントサイズ */
+}
 #icon{
     grid-area: icon;
     position: absolute;
