@@ -1,46 +1,110 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Whats up tak-min!!</title>
-        <link rel="Stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <div class="header">
-                <h1>Whats up tak-min!!</h1>
-            </div>
-        </header>
-        <div id="container">
-            <div id="icon">
-                <img src="myImage.jpg" alt="No Image" Width="300" height="480"> 
-            </div>
-            <div id="space">
-            </div>
-            <div id="name">
-                <hr class="default-hr">
-                <div class="FullName">
-                    <h1>江藤 拓海</h1>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tak-min's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-inner">
+                <div class="profile-image">
+                    <img src="myImage.jpg" alt="Tak-min's profile picture">
                 </div>
-                <h5>tak-min</h5>
-                <hr class="default-hr">
-            </div>
-            <div id="context">
-                <p>
-                    初めまして！tak-minと申します。<br>
-                    明石高専に通ってる高専二年生です！<br>
-                    趣味はビジネスに関する情報を追ったり、プログラミングをすることです！<br>
-                    よろしくお願いします！<br><br>
-                </p>
-                <div class="link">
-                    <ul class="follow-me">
-                        <li><a href=https://x.com/Japans_Kosensei>ついったーのあかうんと</a></li>
-                        <li><a href=https://www.instagram.com/takminium>いんすたぐらむのあかうんと</li>
-                        <li><a href=https://github.com/Tak-min>ぎっとはぶのあかうんと</li>
+                <h2>江藤 拓海</h2>
+                <p class="username">@tak-min</p>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#about"><i class="fas fa-user"></i><span>自己紹介</span></a></li>
+                        <li><a href="#skills"><i class="fas fa-cogs"></i><span>スキル</span></a></li>
+                        <li><a href="#works"><i class="fas fa-project-diagram"></i><span>制作物</span></a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i><span>連絡先</span></a></li>
                     </ul>
+                </nav>
+                <div class="social-links">
+                    <a href="https://x.com/Japans_Kosensei" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/takminium" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/Tak-min" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-        </div>
-        <footer></footer>
-    </body>
+        </aside>
+
+        <main class="main-content">
+            <section id="about" class="content-section">
+                <h1 class="section-title">はじめまして！</h1>
+                <div class="card">
+                    <p>
+                        tak-minと申します。明石高専の電気情報工学科に通う2年生です。<br>
+                        プログラミングとビジネスに強い関心があり、日々新しい技術や情報を追いかけています。<br>
+                        このサイトでは、私のスキルやこれまでに作ってきたものを紹介しています。
+                    </p>
+                    <p>どうぞ、ごゆっくりご覧ください！</p>
+                </div>
+            </section>
+
+            <section id="skills" class="content-section">
+                <h2 class="section-title">できること</h2>
+                <div class="card-container">
+                    <div class="card skill-card">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h3>Web開発</h3>
+                        <p>HTML, CSS, JavaScriptを中心に、モダンなウェブサイトやアプリケーションを構築できます。</p>
+                    </div>
+                    <div class="card skill-card">
+                        <i class="fab fa-python skill-icon"></i>
+                        <h3>Python</h3>
+                        <p>データ分析や機械学習、簡単なデスクトップアプリの開発経験があります。</p>
+                    </div>
+                    <div class="card skill-card">
+                        <i class="fas fa-database skill-icon"></i>
+                        <h3>データベース</h3>
+                        <p>基本的なSQLの知識があり、簡単なデータベースの設計・操作が可能です。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="works" class="content-section">
+                <h2 class="section-title">作ったもの</h2>
+                <div class="card-container">
+                    <div class="card work-card">
+                        <div class="work-image">
+                            <img src="work-placeholder.png" alt="制作物の画像">
+                        </div>
+                        <h3>ポートフォリオサイト</h3>
+                        <p>このウェブサイトです。モダンな技術とデザインを意識して作成しました。</p>
+                        <a href="#" class="btn">詳しく見る</a>
+                    </div>
+                    <div class="card work-card">
+                        <div class="work-image">
+                            <img src="work-placeholder.png" alt="制作物の画像">
+                        </div>
+                        <h3>AIチャットボット</h3>
+                        <p>自然言語処理モデルを活用した、対話型のチャットアプリケーションです。</p>
+                        <a href="#" class="btn">詳しく見る</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="content-section">
+                <h2 class="section-title">連絡先</h2>
+                <div class="card">
+                    <p>ご意見、ご感想、お仕事の依頼など、お気軽にご連絡ください。</p>
+                    <a href="mailto:your-email@example.com" class="btn"><i class="fas fa-paper-plane"></i> メールを送る</a>
+                </div>
+            </section>
+
+            <footer>
+                <p>あなたは <span id="visitor-count">...</span> 人目の訪問者です。</p>
+                <p>&copy; 2025 Tak-min. All Rights Reserved.</p>
+            </footer>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>

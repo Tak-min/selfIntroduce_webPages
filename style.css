@@ -1,36 +1,272 @@
-/* コンテナ */
-#container{
-    display: grid;
-    grid-template-rows: 200px 200px;
-    grid-template-columns: 300px 50px 1fr;
-    grid-template-areas: "icon space name" "icon space context";
-    padding: 50px;
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --background-color: #f0f2f5;
+    --sidebar-bg: #ffffff;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --light-text-color: #7f8c8d;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --transition-speed: 0.3s;
 }
 
-/* アイテム */
-.header{
-    background-color: #4F6F52; /* ヘッダーの背景色など */
-    height: 150px;
-    font-size: xx-large;
-    color: #fff;
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+.container {
     display: flex;
-    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- サイドバー --- */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-bg);
+    padding: 40px 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
 }
-.FullName{
-    font-size: 24px; /* 名前のフォントサイズ */
+
+.sidebar-inner {
+    width: 100%;
 }
-#icon{
-    grid-area: icon;
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 4px solid var(--primary-color);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sidebar h2 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.username {
+    color: var(--light-text-color);
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.main-nav a:hover, .main-nav a.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.main-nav i {
+    width: 20px;
+    margin-right: 15px;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 40px;
+}
+
+.social-links a {
+    color: var(--light-text-color);
+    font-size: 1.5rem;
+    margin: 0 12px;
+    transition: color var(--transition-speed);
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- メインコンテンツ --- */
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.content-section {
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
     position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
 }
-#name {
-    grid-area: name;
+
+.card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
 }
-#context{
-    grid-area: context;
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
-#space{
-    grid-area: space;
-    background: #fff;
+
+.skill-card {
+    text-align: center;
 }
+
+.skill-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.work-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.work-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-speed);
+}
+
+.work-card:hover .work-image img {
+    transform: scale(1.05);
+}
+
+.work-card h3 {
+    margin-top: 20px;
+}
+
+.work-card p {
+    flex-grow: 1;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color var(--transition-speed);
+    margin-top: 15px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+/* --- フッター --- */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--light-text-color);
+    font-size: 0.9rem;
+}
+
+#visitor-count {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* --- レスポンシブ対応 --- */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        box-shadow: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .main-nav ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .main-nav a {
+        margin: 5px;
+    }
+    .main-nav span {
+        display: none; /* スマホではアイコンのみ表示 */
+    }
+    .main-nav i {
+        margin-right: 0;
+    }
+}
+
