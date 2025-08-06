@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tak-min's Portfolio</title>
+
+    <!-- Google Fonts: Preconnect and optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Critical CSS (FontAwesome and main styles) loaded asynchronously -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+
 </head>
 <body>
     <div class="container">
         <aside class="sidebar">
             <div class="sidebar-inner">
                 <div class="profile-image">
-                    <img src="myImage.jpg" alt="Tak-min's profile picture">
+                    <!-- LCP Image Optimization: Use WebP, specify dimensions, and set high fetch priority -->
+                    <img src="myImage.wp2" alt="Tak-min's profile picture" width="120" height="120" fetchpriority="high">
                 </div>
                 <h2>江藤 拓海</h2>
                 <p class="username">@tak-min</p>
@@ -28,9 +37,9 @@
                     </ul>
                 </nav>
                 <div class="social-links">
-                    <a href="https://x.com/Japans_Kosensei" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/takminium" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/Tak-min" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/Japans_Kosensei" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/takminium" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/Tak-min" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </aside>
@@ -74,7 +83,8 @@
                 <div class="card-container">
                     <div class="card work-card">
                         <div class="work-image">
-                            <img src="work-placeholder.png" alt="制作物の画像">
+                            <!-- Lazy-loaded Image: Use WebP, specify dimensions, and lazy load -->
+                            <img src="work-placeholder.webp" alt="制作物の画像" width="280" height="180" loading="lazy" decoding="async">
                         </div>
                         <h3>ポートフォリオサイト</h3>
                         <p>このウェブサイトです。モダンな技術とデザインを意識して作成しました。</p>
@@ -82,7 +92,7 @@
                     </div>
                     <div class="card work-card">
                         <div class="work-image">
-                            <img src="work-placeholder.png" alt="制作物の画像">
+                            <img src="work-placeholder.webp" alt="制作物の画像" width="280" height="180" loading="lazy" decoding="async">
                         </div>
                         <h3>AIチャットボット</h3>
                         <p>自然言語処理モデルを活用した、対話型のチャットアプリケーションです。</p>
@@ -105,6 +115,7 @@
             </footer>
         </main>
     </div>
-    <script src="script.js"></script>
+    <!-- Deferred script loading -->
+    <script src="script.js" defer></script>
 </body>
 </html>
