@@ -1,48 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Visitor Counter Function ---
-    const visitorCountElement = document.getElementById('visitor-count');
-    if (visitorCountElement) {
-        let count = localStorage.getItem('visitorCount');
-        if (count === null) {
-            count = 1;
-        } else {
-            count = parseInt(count, 10) + 1;
-        }
-        localStorage.setItem('visitorCount', count);
-        visitorCountElement.textContent = count;
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.setAttribute('data-theme', 'dark');
+        icon.classList.replace('fa-moon', 'fa-sun');
     }
 
-    // --- Scroll Animation ---
+    themeToggle.addEventListener('click', () => {
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+            icon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+    });
+
+    // Scroll Animation Observers
     const sections = document.querySelectorAll('.content-section');
-    const options = {
-        root: null, // Use viewport as reference
+    const observerOptions = {
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% visible
+        threshold: 0.1
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Stop observing once shown
                 observer.unobserve(entry.target);
             }
         });
-    }, options);
+    }, observerOptions);
 
     sections.forEach(section => {
-        observer.observe(section);
+        sectionObserver.observe(section);
     });
 
-    // --- Sidebar Active State Toggle ---
+    // Sidebar Active State Sync
     const navLinks = document.querySelectorAll('.main-nav a');
-    const contentSections = document.querySelectorAll('.content-section');
-
     window.addEventListener('scroll', () => {
         let current = '';
-        contentSections.forEach(section => {
+        sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 60) {
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - sectionHeight / 3)) {
                 current = section.getAttribute('id');
             }
         });
